@@ -40,15 +40,10 @@ rating_columns = [col for col in dfx.columns if col not in non_rating_cols]
 dfx[rating_columns] = dfx[rating_columns].apply(pd.to_numeric, errors='coerce')
 
 # --- SIDEBAR ---
-st.sidebar.image("assets/logo.png", width=120)
+
 st.sidebar.title("Dashboard Pages")
 page = st.sidebar.radio("Select Page:", ["Front Page", "Teacher Ranking", "Strengths & Weaknesses"])
 
-@st.cache_data
-def compute_teacher_avgs(df):
-    return df.groupby('Teacher Name')[rating_columns].mean().mean(axis=1).sort_values(ascending=False)
-
-teacher_avgs = compute_teacher_avgs(dfx)
 
 # --- FRONT PAGE ---
 def front_page():
