@@ -15,7 +15,7 @@ if os.path.exists("assets/logo.png"):
 st.set_page_config(page_title="Teachers Dashboard", page_icon="📊", layout="wide")
 
 # --- LOAD DATA ---
-dfx = pd.read_csv("encoded_teacher_evaluations.csv", encoding="cp1252")
+dfx = pd.read_csv("encoded_teacher_evaluations.csv")
 
 # Drop Response number if exists
 if 'Response number' in dfx.columns:
