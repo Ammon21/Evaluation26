@@ -2,6 +2,15 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 
+import os
+
+if not os.path.exists("encoded_teacher_evaluations.csv"):
+    st.error("CSV file missing!")
+    st.stop()
+
+if os.path.exists("assets/logo.png"):
+    st.sidebar.image("assets/logo.png", width=120)
+
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Teachers Dashboard", page_icon="📊", layout="wide")
 
